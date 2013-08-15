@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+
+	<package name="default" extends="struts-default" namespace="/">
+
+		<action name="query" class="com.jcasey.action.BookQuery" method="query">
+				<result name="success">query.jsp</result>
+		</action>
+		
+		<action name="bookAddForm" class="com.jcasey.action.ViewBook" method="execute">
+				<result name="add">add.jsp</result>
+		</action>
+		
+		<action name="bookAddRecord" class="com.jcasey.action.ViewBook" method="add">
+				<result name="success" type="redirect">query</result>
+		</action>
+		
+		<action name="delete" class="com.jcasey.action.BookQuery" method="delete">
+				<result name="success" type="redirect">query</result>
+		</action>
+	</package>
+</struts>
