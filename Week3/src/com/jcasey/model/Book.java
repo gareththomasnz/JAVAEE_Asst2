@@ -10,8 +10,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Book")
-public class Book implements Serializable {
-
+public class Book implements Serializable
+{
 	private static final long serialVersionUID = -6837174276610847586L;
 	private Long bookId;
 	private String title;

@@ -46,7 +46,7 @@
 			<s:property value="blurb"/>
 		</td>
 		<td>
-			<a href="delete?bookId=<s:property value="bookId"/>">Delete</a>
+			<a href="delete.action?bookId=<s:property value="bookId"/>">Delete</a>
 		</td>
 		<td>
 			Update ...

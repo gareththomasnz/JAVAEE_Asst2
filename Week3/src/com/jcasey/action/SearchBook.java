@@ -6,11 +6,11 @@ import com.jcasey.controller.BookManager;
 import com.jcasey.model.Book;
 import com.opensymphony.xwork2.Action;
 
-public class BookQuery
+public class SearchBook
 {	
 	private BookManager linkController;
 	
-	public BookQuery()
+	public SearchBook()
 	{
 		linkController = new BookManager();
 		books = new ArrayList<Book>();

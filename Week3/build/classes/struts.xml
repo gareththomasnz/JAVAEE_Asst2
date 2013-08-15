@@ -13,20 +13,20 @@
 
 	<package name="default" extends="struts-default" namespace="/">
 
-		<action name="query" class="com.jcasey.action.BookQuery" method="query">
+		<action name="query" class="com.jcasey.action.SearchBook" method="query">
 				<result name="success">query.jsp</result>
 		</action>
 		
-		<action name="bookAddForm" class="com.jcasey.action.ViewBook" method="execute">
+		<action name="delete" class="com.jcasey.action.SearchBook" method="delete">
+				<result name="success" type="redirect">query.action</result>
+		</action>
+		
+		<action name="bookAddForm" class="com.jcasey.action.ModifyBook" method="execute">
 				<result name="add">add.jsp</result>
 		</action>
 		
-		<action name="bookAddRecord" class="com.jcasey.action.ViewBook" method="add">
-				<result name="success" type="redirect">query</result>
-		</action>
-		
-		<action name="delete" class="com.jcasey.action.BookQuery" method="delete">
-				<result name="success" type="redirect">query</result>
+		<action name="bookAddRecord" class="com.jcasey.action.ModifyBook" method="add">
+				<result name="success" type="redirect">query.action</result>
 		</action>
 	</package>
 </struts>

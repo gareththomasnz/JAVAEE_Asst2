@@ -4,10 +4,8 @@ import com.jcasey.controller.BookManager;
 import com.jcasey.model.Book;
 import com.opensymphony.xwork2.Action;
 
-public class ViewBook
+public class ModifyBook
 {	
-	private static final long serialVersionUID = -4016279576053983645L;
-
 	private BookManager linkController;
 	
 	private Long bookId;
@@ -17,7 +15,7 @@ public class ViewBook
 	private String isbn;
 	private String blurb;
 	
-	public ViewBook()
+	public ModifyBook()
 	{
 		linkController = new BookManager();
 	}
