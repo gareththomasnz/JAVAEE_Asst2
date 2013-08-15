@@ -9,7 +9,7 @@
 <body>
 <h2>Struts 2 - Book Database</h2>
 <s:actionerror />
-<s:form action="bookAddRecord" method="post">
+<s:form action="save.action" method="post">
 
 	<s:textfield name="bookId" label="Id" size="20" readonly="true" />
 	<s:textfield name="title" key="label.title" size="20" />

@@ -23,7 +23,7 @@
 
 <table>
 
-<s:form action="bookAddForm" method="post">
+<s:form action="add.action" method="post">
 <s:iterator value="books">
 
 	<tr>
