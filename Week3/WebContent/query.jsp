@@ -16,7 +16,7 @@
 	<s:textfield name="genre" key="label.genre" size="20" />
 
 
-	<s:submit name="search" method="execute" label="Search" align="right" type="button"/> 
+	<s:submit name="search" label="Search" align="right" type="button"/> 
 	
 
 </s:form>
@@ -49,7 +49,7 @@
 			<a href="delete.action?bookId=<s:property value="bookId"/>">Delete</a>
 		</td>
 		<td>
-			Update ...
+			<a href="modify.action?bookId=<s:property value="bookId"/>">Modify</a>
 		</td>
 	</tr>
 </s:iterator>

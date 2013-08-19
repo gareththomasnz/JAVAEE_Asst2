@@ -18,7 +18,7 @@
 	<s:textfield name="blurb" label="Blurb" size="20" />
 	<s:textfield name="isbn" label="isbn" size="20" />
 
-	<s:submit name="Add" method="execute" label="Add" align="right" type="button"/> 
+	<s:submit name="Add" label="Add" align="right" type="button"/> 
 </s:form>
 
 </body>
