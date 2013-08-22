@@ -80,15 +80,8 @@ public class Manager extends HibernateUtil {
 			
 			books.addAll((List<Book>)criteria.list());
 			
-			for(Book book: books)
-			{
-				for(BookGenre bookGenre :book.getBookGenre())
-				{
-					Genre mappedGenre = bookGenre.getGenre();
-					mappedGenre.getId();
-				}
-			}
-		} catch (HibernateException e) {
+			// TODO load related records
+			} catch (HibernateException e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
 		}
@@ -162,15 +155,8 @@ public class Manager extends HibernateUtil {
 		Criteria criteria = session.createCriteria(Book.class);
 		books = (List<Book>)criteria.list(); // get the list
 		
-		for(Book book: books)
-		{
-			for(BookGenre bookGenre :book.getBookGenre())
-			{
-				Genre mappedGenre = bookGenre.getGenre();
-				mappedGenre.getId();
-			}
-		}
-	} catch (HibernateException e) {
+		//TODO load related objects / records
+		} catch (HibernateException e) {
 		e.printStackTrace();
 		session.getTransaction().rollback();
 	}
