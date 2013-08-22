@@ -2,17 +2,17 @@ package com.jcasey.action;
 
 import java.util.ArrayList;
 
-import com.jcasey.controller.BookManager;
+import com.jcasey.controller.Manager;
 import com.jcasey.model.Book;
 import com.opensymphony.xwork2.Action;
 
 public class SearchBook
 {	
-	private BookManager linkController;
+	private Manager linkController;
 	
 	public SearchBook()
 	{
-		linkController = new BookManager();
+		linkController = new Manager();
 		books = new ArrayList<Book>();
 	}
 	
@@ -22,12 +22,6 @@ public class SearchBook
 	private Long bookId;
 	
 	ArrayList <Book> books;
-
-	public String delete()
-	{
-		linkController.delete(getBookId());
-		return Action.SUCCESS;
-	}
 	
 	public String query()
 	{

@@ -1,11 +1,13 @@
 package com.jcasey.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +18,9 @@ public class Book implements Serializable
 	private Long bookId;
 	private String title;
 	private String author;
-	private String genre;
+	
+	private List<BookGenre> bookGenre;
+	
 	private String isbn;
 	private String blurb;
 
@@ -34,9 +38,9 @@ public class Book implements Serializable
 	public String getAuthor() {
 		return author;
 	}
-	@Column(name="genre")
-	public String getGenre() {
-		return genre;
+	@OneToMany (mappedBy="book")
+	public List<BookGenre> getBookGenre() {
+		return bookGenre;
 	}
 	@Column(name="isbn")
 	public String getIsbn() {
@@ -56,8 +60,8 @@ public class Book implements Serializable
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public void setGenre(String genre) {
-		this.genre = genre;
+	public void setBookGenre(List<BookGenre> genre) {
+		this.bookGenre = genre;
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
