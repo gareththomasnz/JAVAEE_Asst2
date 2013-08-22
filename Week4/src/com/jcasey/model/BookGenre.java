@@ -22,26 +22,4 @@ public class BookGenre {
 	public Long getId() {
 		return id;
 	}
-	@ManyToOne
-	@JoinColumn (name="book_id")
-	public Book getBook() {
-		return book;
-	}
-	
-	@ManyToOne
-	@JoinColumn (name="genre_id")
-	public Genre getGenre() {
-		return genre;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public void setBook(Book book) {
-		this.book = book;
-	}
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-	
-	
 }

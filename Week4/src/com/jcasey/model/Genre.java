@@ -25,28 +25,6 @@ public class Genre {
 		return id;
 	}
 	
-	@Column (name="genre")
-	public String getGenre() {
-		return genre;
-	}
-
-	@OneToMany (mappedBy="genre")
-	public List<BookGenre> getBookGenre() {
-		return bookGenre;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
-	public void setBookGenre(List<BookGenre> bookGenre) {
-		this.bookGenre = bookGenre;
-	}
-
 	@Override
 	public boolean equals(Object obj)
 	{
