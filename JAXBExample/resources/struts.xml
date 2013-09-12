@@ -43,5 +43,15 @@
 		<action name="update" class="com.jcasey.action.ModifyBook" method="update">
 				<result name="success" type="redirect">query.action</result>
 		</action>
+		
+		<action name="uploadBook" class="com.jcasey.action.JaxbAction">
+		    	<result name="success">addBook.jsp</result>
+		    	<result name="error">addBook.jsp</result> 
+		</action>
+		
+	    <action name="upload" class="com.jcasey.action.JaxbAction" method="addBookList">
+		    	<result name="success" type="redirect">query.action</result>
+		    	<result name="error">addBook.jsp</result> 
+		</action>
 	</package>
 </struts>
