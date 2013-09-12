@@ -17,13 +17,15 @@ public class JaxbAction {
 
 	private File bookFile;
 
-	private String bookFileName;
-	private String bookFileContentType;
 
 	public JaxbAction(){
 		linkController = new Manager();
 	}
 
+	public String execute(){
+		return Action.SUCCESS;
+	}
+	
 	/*
 	 * Adds a bookList to the database from a book.xml file using JAXB
 	 */
@@ -33,46 +35,37 @@ public class JaxbAction {
 			JAXBContext jaxb = JAXBContext.newInstance(ObjectFactory.class);
 			Unmarshaller unmarshaller = jaxb.createUnmarshaller();
 			
-			Books xmlBooks =  (Books)unmarshaller.unmarshal(bookFile);
-			
-			// copy data from XML to Hibernate database object
-			
-			for(Books.Book xmlBook:  xmlBooks.getBook())												
+			if(bookFile != null)
 			{
-				com.jcasey.model.Book book = new com.jcasey.model.Book();
+				Books xmlBooks =  (Books)unmarshaller.unmarshal(bookFile);
 				
-				book.setAuthor(xmlBook.getAuthor());
-				book.setTitle(xmlBook.getTitle());
-				book.setIsbn(xmlBook.getIsbn());
+				// copy data from XML to Hibernate database object
 				
-				//TODO link with genre etc
-				
-				linkController.addBook(book);
+				for(Books.Book xmlBook:  xmlBooks.getBook())												
+				{
+					com.jcasey.model.Book book = new com.jcasey.model.Book();
+					
+					book.setAuthor(xmlBook.getAuthor());
+					book.setTitle(xmlBook.getTitle());
+					book.setIsbn(xmlBook.getIsbn());
+					
+					//TODO link with genre etc
+					
+					linkController.addBook(book);
+				}				
 			}
-			
 			return Action.SUCCESS;
-			
-		} catch (JAXBException e) {
+		}
+		catch (JAXBException e) {
 			e.printStackTrace();
 			return Action.ERROR;
 		}
-
 	}
-	public String getBookFileName() {
-		return bookFileName;
+	public File getBookFile() {
+		return bookFile;
 	}
-
-	public String getBookFileContentType() {
-		return bookFileContentType;
+	
+	public void setBookFile(File bookFile) {
+		this.bookFile = bookFile;
 	}
-
-	public void setBookFileName(String bookFileName) {
-		this.bookFileName = bookFileName;
-	}
-
-	public void setBookFileContentType(String bookFileContentType) {
-		this.bookFileContentType = bookFileContentType;
-	}
-
-
 }
