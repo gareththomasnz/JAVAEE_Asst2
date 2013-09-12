@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
+    <book>
+        <title>The Well-Grounded Java Developer: Vital techniques of Java 7 and polyglot programming</title>
+        <author>Benjamin J Evans</author>
+        <genres>
+            <genre>
+                <type>Java</type>
+            </genre>
+            <genre>
+                <type>Scala</type>
+            </genre>
+        </genres>
+        <isbn>978-1617290060</isbn>
+        <price>0</price>
+        <maxprice>0</maxprice>
+    </book>
+    <book>
+        <title>Java Concurrency in Practice</title>
+        <author>Brian Goetz</author>
+        <isbn>978-3832180577</isbn>
+        <price>0</price>
+        <maxprice>0</maxprice>
+    </book>
+</books>
