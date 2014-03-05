@@ -78,17 +78,6 @@ public class BookQuery {
 	
 	public String query()
 	{		
-//		try {
-//			PrintWriter output = response.getWriter();
-////			response.setContentType("text/html");
-//			output.println("toasty");
-//			output.flush();
-//		
-//		} catch (IOException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-		
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -97,24 +86,6 @@ public class BookQuery {
 			System.out.println(genre);
 			System.out.println(title);
 			System.out.println(author);
-			
-//			MysqlDataSource ds = new MysqlDataSource();
-//
-//			ds.setUser("root");
-//			ds.setPassword("test");
-//			ds.setServerName("localhost");
-//			ds.setPort(3306);
-//			ds.setDatabaseName("test");
-			
-			
-//			OracleDataSource ds = new OracleDataSource();
-//			
-//			// setup URL according to Oracle's specs
-//			ds.setURL("jdbc:oracle:thin:@docoraclere.unitec.ac.nz:1521:students");
-//			
-//			// set other data source properties
-//			ds.setPassword("TEST");
-//			ds.setUser("JCASEY");
 
 			JDBCDataSource ds = new JDBCDataSource();
 			
