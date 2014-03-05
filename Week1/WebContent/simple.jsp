@@ -7,17 +7,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello World!
+<b>Hello World!</b>
 
 	<% 
 		String myName = "John Casey";
+	
+		int age = 17;
 	%>
-	other data<p>
+	
+	<%!
+		public int helloWorld()
+		{
+			// anything else ... ?
+		
+			return 500;
+		}
+	%>
+	
+	<%=
+		helloWorld()
+	%>
+	
+	
+	
+	other data<br>
 	<%
+		
+	
+	
+		if(age >= 18)
+		{
+			out.println("would you like a beer?");
+		}
+		else
+		{
+			out.println("would you like a cordial?");
+		}
 		out.println("test"+myName);
 		out.println("<p>");
-	
+		
+		out.println("This is a new paragraph isn't it lovely.");
 	%>
+	
 
 </body>
 </html>
