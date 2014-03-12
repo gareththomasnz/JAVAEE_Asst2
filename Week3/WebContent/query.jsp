@@ -45,12 +45,6 @@
 		<td>
 			<s:property value="blurb"/>
 		</td>
-		<td>
-			<a href="delete.action?bookId=<s:property value="bookId"/>">Delete</a>
-		</td>
-		<td>
-			<a href="modify.action?bookId=<s:property value="bookId"/>">Modify</a>
-		</td>
 	</tr>
 </s:iterator>
 

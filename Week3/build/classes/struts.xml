@@ -21,11 +21,11 @@
 				<result name="success" type="redirect">query.action</result>
 		</action>
 		
-		<action name="bookAddForm" class="com.jcasey.action.ModifyBook" method="execute">
+		<action name="add" class="com.jcasey.action.ModifyBook" method="execute">
 				<result name="add">add.jsp</result>
 		</action>
 		
-		<action name="bookAddRecord" class="com.jcasey.action.ModifyBook" method="add">
+		<action name="save" class="com.jcasey.action.ModifyBook" method="add">
 				<result name="success" type="redirect">query.action</result>
 		</action>
 	</package>

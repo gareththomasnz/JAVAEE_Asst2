@@ -12,11 +12,7 @@
 <s:form action="save.action" method="post">
 
 	<s:textfield name="bookId" label="Id" size="20" readonly="true" />
-	<s:textfield name="title" key="label.title" size="20" />
-	<s:textfield name="author" key="label.author" size="20" />
-	<s:textfield name="genre" key="label.genre" size="20" />
-	<s:textfield name="blurb" label="Blurb" size="20" />
-	<s:textfield name="isbn" label="isbn" size="20" />
+
 
 	<s:submit name="Add" label="Add" align="right" type="button"/> 
 </s:form>
