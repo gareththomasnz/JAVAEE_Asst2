@@ -25,10 +25,7 @@ public class ModifyBook
 		Book book = new Book();
 		
 		book.setAuthor(author);
-		book.setTitle(title);
-		book.setBlurb(blurb);
-		book.setGenre(genre);
-		book.setIsbn(isbn);
+ 
 		
 		linkController.add(book);
 		
