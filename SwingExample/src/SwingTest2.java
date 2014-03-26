@@ -14,7 +14,8 @@ public class SwingTest2 extends JFrame {
 		JPanel formField = new JPanel();
 		formField.setLayout(new FlowLayout());
 		formField.add(new JLabel("Hello World"));
-		formField.add(new JButton("Hello World"));
+		JButton btnHello = new JButton("Hello World");
+		formField.add(btnHello);
 		
 		JPanel formField2 = new JPanel();
 		formField2.setLayout(new FlowLayout());
