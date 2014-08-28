@@ -5,27 +5,35 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.Border;
 
 
 public class BorderLayoutTest extends JFrame {
 
 	public BorderLayoutTest()
 	{
-
 		getContentPane().setLayout(new BorderLayout());
 		
-		JLabel grrr = new JLabel("Center");
-		grrr.setBorder(BorderFactory.createLineBorder(Color.red));
+		JLabel lblNorth = new JLabel("North");
+		JLabel lblSouth = new JLabel("South");
+		JLabel lblEast = new JLabel("East");
+		JLabel lblWest = new JLabel("West");
+		JLabel lblCenter = new JLabel("Center");
+
+		final Border lineBorder = BorderFactory.createLineBorder(Color.RED);
 		
-		getContentPane().add(grrr,BorderLayout.CENTER);
-		JLabel center = new JLabel("East");
-		center.setBorder(BorderFactory.createLineBorder(Color.RED));
-		getContentPane().add(center,BorderLayout.EAST);
-		JLabel jLabel = new JLabel("West");
-		jLabel.setBorder(BorderFactory.createLineBorder(Color.red));
-		getContentPane().add(jLabel,BorderLayout.WEST);
-		getContentPane().add(new JLabel("North"),BorderLayout.NORTH);
+		lblCenter.setBorder(lineBorder);
+		lblEast.setBorder(lineBorder);
+		lblWest.setBorder(lineBorder);
+		lblNorth.setBorder(lineBorder);
+		lblSouth.setBorder(lineBorder);
 		
+		getContentPane().add(lblCenter,BorderLayout.CENTER);
+		getContentPane().add(lblEast,BorderLayout.EAST);
+		getContentPane().add(lblWest,BorderLayout.WEST);
+		getContentPane().add(lblNorth,BorderLayout.NORTH);
+		getContentPane().add(lblSouth,BorderLayout.SOUTH);
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setVisible(true);
@@ -39,5 +47,4 @@ public class BorderLayoutTest extends JFrame {
 	public static void main(String[] args) {
 		BorderLayoutTest test = new BorderLayoutTest();
 	}
-
 }

@@ -1,21 +1,35 @@
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 
-public class SwingTest2 extends JFrame {
+public class ComboBoxTest extends JFrame {
 
-	public SwingTest2()
+	public ComboBoxTest()
 	{
 		JPanel formField = new JPanel();
 		formField.setLayout(new FlowLayout());
 		formField.add(new JLabel("Hello World"));
-		JButton btnHello = new JButton("Hello World");
-		formField.add(btnHello);
+		JButton myButton = new JButton("Hello World");
+		
+		myButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {				
+				System.err.println("Hello World");
+				
+			}
+		});
+		
+		formField.add(myButton);
 		
 		JPanel formField2 = new JPanel();
 		formField2.setLayout(new FlowLayout());
@@ -26,6 +40,20 @@ public class SwingTest2 extends JFrame {
 		getContentPane().add(formField);
 		getContentPane().add(formField2);
 		
+		
+		JPanel parent = new JPanel();
+		parent.setLayout(new FlowLayout());
+		
+		JComboBox<String> items = new JComboBox<String> ();
+		
+		items.addItem("acorn");
+		items.addItem("apple");
+		items.addItem("apricot");
+		
+		parent.add(items);
+		
+		getContentPane().add(parent);
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setVisible(true);
@@ -37,7 +65,7 @@ public class SwingTest2 extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SwingTest2 test = new SwingTest2();
+		ComboBoxTest test = new ComboBoxTest();
 	}
 
 }

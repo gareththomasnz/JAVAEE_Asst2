@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class SwingTest extends JFrame {
+public class HelloWorldSwing extends JFrame {
 
-	public SwingTest()
+	public HelloWorldSwing()
 	{
 		getContentPane().setLayout(new FlowLayout());
 		getContentPane().add(new JLabel("Hello World"));
@@ -24,7 +24,7 @@ public class SwingTest extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SwingTest test = new SwingTest();
+		HelloWorldSwing test = new HelloWorldSwing();
 	}
 
 }
