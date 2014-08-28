@@ -40,9 +40,9 @@ public class Server extends JFrame
 		{
 			while(true) // keep accepting new clients
 			{
-				Socket client = serverSocket.accept();
+				Socket remoteClient = serverSocket.accept();
 								
-				ServerThread st = new ServerThread(client,this,connectedClients);
+				ServerThread st = new ServerThread(remoteClient,this,connectedClients);
 				st.start();
 				
 				connectedClients.add(st);
