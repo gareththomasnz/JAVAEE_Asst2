@@ -1,12 +1,13 @@
+package test;
 import java.util.List;
 
+import controller.BookManager;
 import model.Book;
 import model.Customer;
 import model.Loan;
-import controller.BookManager;
 
 
-public class test {
+public class testAddBookLoanCustomerDelete {
 	public static void main(String[] args)
 	{
 		BookManager linkController = new BookManager();
@@ -16,7 +17,7 @@ public class test {
 		book.setTitle("Book1");
 		book.setGenre("Technology");
 		
-		book = linkController.add(book);
+		book = linkController.addBook(book);
 		
 		Customer customer = new Customer();
 		customer.setName("Jacob");
@@ -29,15 +30,21 @@ public class test {
 		
 		loan = linkController.addLoan(loan);
 		
-		Book test = linkController.get(book.getBookId());
-		List<Loan> loans = test.getLoans();
+		Book bookTest = linkController.getBook(book.getBookId());
+		List<Loan> associatedLoans = bookTest.getLoans();
 		
-		for(Loan loanTest: loans)
+		// iterate through the book -> loan -> customer mappings
+		// these mappings have been pre-loaded inside the linkController.getBook() method
+		for(Loan loanTest: associatedLoans)
 		{
 			Customer cus = loanTest.getCustomer();
 			System.out.println(loanTest.getBook().getTitle()+""+cus.getName());
-			
-			cus.getLoan().size();
 		}
+		
+		
+		loan = linkController.deleteLoan(loan);
+		book = linkController.deleteBook(book);
+		customer = linkController.deleteCustomer(customer);
+		
 	}
 }
