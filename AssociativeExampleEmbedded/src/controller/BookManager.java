@@ -9,6 +9,7 @@ import model.Loan;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -17,7 +18,33 @@ import util.HibernateUtil;
 
 public class BookManager extends HibernateUtil {
 
-	public Book update(Book book) {
+//	public void clearDatabase()
+//	{
+//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//		session.beginTransaction();
+//		
+//		Query deleteLoan = session.createQuery("delete from Loan");
+//		deleteLoan.executeUpdate();
+//		
+//		Query deleteCustomer = session.createQuery("delete from Customer");
+//		deleteCustomer.executeUpdate();
+//		
+//		
+//		Query deleteBook = session.createQuery("delete from Book");
+//		deleteBook.executeUpdate();
+//		
+//		session.getTransaction().commit();
+//	}
+	
+	public Customer updateCustomer(Customer customer) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.saveOrUpdate(customer);
+		session.getTransaction().commit();
+		return customer;
+	}
+	
+	public Book updateBook(Book book) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		session.saveOrUpdate(book);
@@ -25,7 +52,7 @@ public class BookManager extends HibernateUtil {
 		return book;
 	}
 	
-	public Book add(Book book) {
+	public Book addBook(Book book) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		session.save(book);
@@ -33,7 +60,7 @@ public class BookManager extends HibernateUtil {
 		return book;
 	}
 	
-	public Book delete(Book book) {
+	public Book deleteBook(Book book) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		if(null != book) {
@@ -43,7 +70,27 @@ public class BookManager extends HibernateUtil {
 		return book;
 	}
 	
-	public Book get(Long id) {
+	public Customer deleteCustomer(Customer customer) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		if(null != customer) {
+			session.delete(customer);
+		}
+		session.getTransaction().commit();
+		return customer;
+	}
+	
+	public Loan deleteLoan(Loan loan) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		if(null != loan) {
+			session.delete(loan);
+		}
+		session.getTransaction().commit();
+		return loan;
+	}
+	
+	public Book getBook(Long id) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -61,6 +108,11 @@ public class BookManager extends HibernateUtil {
 				for(Loan loan: loans)
 				{
 					loan.getLoanId();
+					Customer customer = loan.getCustomer();
+					for(Loan loan2: customer.getLoan())
+					{
+						loan2.getLoanId();
+					}
 				}
 			}
 			
@@ -127,4 +179,6 @@ public class BookManager extends HibernateUtil {
 		session.getTransaction().commit();
 		return loan;
 	}
+
+
 }

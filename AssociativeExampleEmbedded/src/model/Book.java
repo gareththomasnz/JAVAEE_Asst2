@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,14 +17,12 @@ public class Book implements Serializable {
 
 	private static final long serialVersionUID = -6837174276610847586L;
 	private Long bookId;
-	
 	private String title;
 	private String author;
 	private String genre;
 	private List<Loan> loans; // define loans as a Java Collection
 
-	@OneToMany
-	@JoinColumn (name = "book_id") // define book_id as a foreign key in loan table
+	@OneToMany (mappedBy = "book") // map loan entities via book on the loan entity
 	public List<Loan> getLoans() {
 		return loans;
 	}
