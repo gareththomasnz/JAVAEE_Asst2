@@ -88,7 +88,7 @@ public class BookManager extends HibernateUtil {
 		session.beginTransaction();
 
 		AuditReader auditReader = AuditReaderFactory.get(session); 
-		List<Number>revisions = auditReader.getRevisions(Book.class, id); // not that useful just returns the revision numbers
+		// List<Number>revisions = auditReader.getRevisions(Book.class, id); // not that useful just returns the revision numbers
 		
 		AuditQuery query = auditReader.createQuery().forRevisionsOfEntity(Book.class, false, true).add(new IdentifierEqAuditExpression(id, true));
 		

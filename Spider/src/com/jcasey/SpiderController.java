@@ -1,19 +1,42 @@
 package com.jcasey;
 
-import org.apache.http.HttpClientConnection;
-import org.apache.http.impl.conn.DefaultClientConnection;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
+@ComponentScan
 public class SpiderController {
+
+	@Bean
+	public Spider getSpider()
+	{
+		return new Spider(getHttpClient(), getHttpParser());
+	}
+	
+	@Bean
+	public HttpClient getHttpClient()
+	{
+		return new HttpClientImpl();
+	}
+	
+	@Bean
+	public HttpParser getHttpParser()
+	{
+		return new HttpParserImpl();
+	}
+	
 	public static void main(String[] args)
 	{
-		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-        reader.loadBeanDefinitions(new ClassPathResource("spring.xml"));
+		// bootstrap spring by scanning for components linked to the SpiderController
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpiderController.class);
 
-		Spider webCrawler = (Spider) beanFactory.getBean("Spider");
+		// use our context to get access to the Spider component
+		Spider webCrawler = (Spider) ctx.getBean(Spider.class);
+		
+		// the Spider components @Autowire annotation will automatically load the HttpClient and HttpParser @Components.
 		webCrawler.startCrawl();
 	}
 }

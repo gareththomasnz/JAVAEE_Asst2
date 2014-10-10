@@ -5,9 +5,9 @@ import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.springframework.stereotype.Component;
 
-
-
+@Component
 public class Spider {
 	
 	private HttpClient client;
@@ -32,6 +32,6 @@ public class Spider {
 	
 	public void crawl(URI uri, int depth)
 	{		
-
+		//TODO implement web crawler algorithm
 	}
 }
