@@ -19,6 +19,8 @@ public class Server extends JFrame
 	
 	public Server()
 	{
+		
+		// construct ServerSocket
 		try {
 			serverSocket = new ServerSocket(5000);
 		}
@@ -26,9 +28,12 @@ public class Server extends JFrame
 		{
 			e.printStackTrace();
 		}
+		
+		// setup minimalist user interface
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		
+		// add a system log to the user interface
 		contentPane.add(new JScrollPane(systemLog),BorderLayout.CENTER);
 		
 		pack();
@@ -40,8 +45,9 @@ public class Server extends JFrame
 		{
 			while(true) // keep accepting new clients
 			{
-				Socket remoteClient = serverSocket.accept();
+				Socket remoteClient = serverSocket.accept(); // block and wait for a connection from a client
 								
+				// construct a new server thread, to handle each client socket
 				ServerThread st = new ServerThread(remoteClient,this,connectedClients);
 				st.start();
 				
@@ -52,8 +58,6 @@ public class Server extends JFrame
 		{
 			e.printStackTrace();
 		}
-		
-		
 	}
 	public static void main(String[] args)
 	{
