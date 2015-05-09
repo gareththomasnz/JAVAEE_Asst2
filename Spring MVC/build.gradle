@@ -2,6 +2,7 @@ buildscript {
 	repositories {
 		mavenCentral()
 	}
+
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
 	}
@@ -14,34 +15,21 @@ apply plugin: 'spring-boot'
 sourceCompatibility = 1.8
 version = '1.0'
 jar {
-    manifest {
-        attributes 'Implementation-Title': 'Spring MVC Example', 'Implementation-Version': version
-    }
-}
-
-sourceSets
-{
-	main
-	{
-		java
-		{
-			srcDir 'src'
-		}
-		resources
-		{
-			srcDir 'src'
-		}
-	}
+	baseName = 'books'
+	version  = '1.0.0'
 }
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
-	//compile("org.thymeleaf:thymeleaf-spring4")
 	compile("org.springframework.boot:spring-boot-starter-jdbc")
+	compile("org.thymeleaf:thymeleaf-spring4")
 	compile("org.hsqldb:hsqldb:2.3.+")
 }
 
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.0'
+}
