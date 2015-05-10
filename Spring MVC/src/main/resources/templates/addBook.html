@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spring Boot Book Database</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+  </head>
+
+  <body>
+    <h2>Add Book Database</h2>
+    <form method="POST" action="addRecord">
+      <label for="title">Title:</label>
+      <input type="text" name="title"></input><br/>
+      <label for="author">Author:</label>
+      <input type="text" name="author"></input><br/>
+      <label for="genre">Genre:</label>
+      <input type="text" name="genre"></input><br/>
+
+      <input type="submit"></input>
+    </form>
+  </body>
+</html>
