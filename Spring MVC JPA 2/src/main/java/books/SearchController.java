@@ -22,8 +22,8 @@ public class SearchController
 	@RequestMapping (method = RequestMethod.POST, value = "/search")
 	public String listBook(Book book, Map<String, Object> model)
 	{
-		Iterable<Book> books = bookRepo.findTitleWildcard(book.getTitle()); //bookRepo.findByTitleIgnoreCaseOrAuthorIgnoreCaseOrGenreIgnoreCase(book.getTitle(),book.getAuthor(),book.getGenre());
-		model.put("books", books);
+//		Iterable<Book> books = bookRepo.findTitleWildcard(book.getTitle()); //bookRepo.findByTitleIgnoreCaseOrAuthorIgnoreCaseOrGenreIgnoreCase(book.getTitle(),book.getAuthor(),book.getGenre());
+//		model.put("books", books);
 		
 		return "search";
 	}

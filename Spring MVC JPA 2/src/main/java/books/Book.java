@@ -1,13 +1,15 @@
 package books;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -21,20 +23,20 @@ public class Book implements Serializable
 	private Long bookId;
 	private String title;
 	private String author;
-	private String genre;
+	private List<Genre> genres;
 
 	public Book()
 	{
 
 	}
 
-	public Book(Long bookId, String title, String author, String genre)
+	public Book(Long bookId, String title, String author, List<Genre> genres)
 	{
 		super();
 		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
-		this.genre = genre;
+		this.genres = genres;
 	}
 
     @Id
@@ -56,10 +58,11 @@ public class Book implements Serializable
 		return author;
 	}
 
-	@Column (name="genre")
-	public String getGenre()
+	@ManyToMany
+	@JoinTable (name="BookGenre")
+	public List<Genre> getGenres()
 	{
-		return genre;
+		return genres;
 	}
 
 	public void setBookId(Long bookId)
@@ -77,15 +80,15 @@ public class Book implements Serializable
 		this.author = author;
 	}
 
-	public void setGenre(String genre)
+	public void setGenres(List<Genre> genres)
 	{
-		this.genre = genre;
+		this.genres = genres;
 	}
 
 	@Override
 	public String toString()
 	{
 		return "Book [bookId=" + bookId + ", title=" + title + ", author="
-				+ author + ", genre=" + genre + "]";
+				+ author + ", genre=" + genres + "]";
 	}
 }

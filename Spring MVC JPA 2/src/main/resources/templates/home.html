@@ -9,12 +9,12 @@
     <h2>Spring Boot Book Database</h2>
     <form method="POST">
       <label for="title">Title:</label>
-      <input type="text" name="title"></input><br/>
+      <input type="text"  th:value="${book.title}"></input><br/>
       <label for="author">Author:</label>
-      <input type="text" name="author"></input><br/>
+      <input type="text"  th:value="${book.author}"></input><br/>
       <label for="genre">Genre:</label>
-      <input type="text" name="genre"></input><br/>
-
+      
+		<input type="text" th:value="${book.genres}"></input><br/>
       <input type="submit"></input>
     </form>
 
@@ -23,7 +23,14 @@
         <span th:text="${book.bookId}">Id</span>
         <span th:text="${book.title}">Title</span>
         <span th:text="${book.author}">Author</span>
-        <span th:text="${book.genre}">Genre</span>
+        
+        
+        <span th:each="genre : ${book.genres}">
+        
+	        <span th:text="${genre.description}">Genre</span>
+        
+        
+        </span>
       </li>
     </ul>
   </body>
